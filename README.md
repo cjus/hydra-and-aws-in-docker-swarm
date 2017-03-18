@@ -6,6 +6,7 @@ Running Hydra on AWS in a Docker Swarm
 * [Introduction](#introduction)
 * [AWS Setup](#aws-setup)
   * [Creating Nodes](#creating-nodes)
+  * [Removing Nodes](#removing-nodes)
 
 ---
 
@@ -41,3 +42,12 @@ docker-machine create --driver amazonec2 \
 
 echo "${NODE_NAME} should be available in a minute"
 ```
+
+<a name="removing-nodes"></a> 
+### Removing Nodes
+
+```shell
+#!/bin/bash
+docker-machine rm -f $1
+```
+
