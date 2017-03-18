@@ -346,7 +346,7 @@ $ docker service create \
 
 To view it, make sure to open port 8080 on the master01 node using an AWS security group that restricts access to your IP address.
 
-<img src="./images/visualizer.png" alt="AWS security group" style="width: 900px;"/>
+<img src="./images/Visualizer.png" alt="AWS security group" style="width: 900px;"/>
 
 <a name="configuration-management"></a>
 ## Configuration management
