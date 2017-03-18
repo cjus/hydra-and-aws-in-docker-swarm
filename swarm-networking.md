@@ -23,4 +23,8 @@ z6vut7t9439u        servicenet          overlay             swarm
 | ingress | Network created by Docker to externally expose services and utilize the routing mesh | swarm |
 | servicenet | Overlay network we created to enable container to container communication | swarm |
 
+---
 
+### References
+
+* https://docs.docker.com/engine/swarm/networking/
