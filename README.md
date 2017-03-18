@@ -53,7 +53,7 @@ In this document, we're going to look at building an eight-node cluster accessib
 
 Hydra-router will only run on master nodes 01 - 03, which are directly accessible via the ALB.  Our microservices will run on worker nodes 01-05.  Services running on worker nodes will not publish ports for use outside of the network that the container is running in.
 
-<img src="./images/swarm-roles.png" alt="swarm roles" style="width: 400px;"/>
+<img src="./images/swarm-roles.png" alt="swarm roles" width=400 />
 
 Referring to the above diagram, the master nodes in the Ingress network communicate with one another in support of high availability. If one master node dies another is elected the active master. We can also scale up or down as required.  Each Hydra-router running inside of a master node is able to communicate with microservices running in containers on the `service network`. Additionally, each service is able to communicate with the outside world (external API services) and with its internal peers and hydra-routers.
 
