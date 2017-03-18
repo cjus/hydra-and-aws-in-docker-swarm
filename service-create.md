@@ -26,3 +26,10 @@ $ docker service create \
 ```
 
 > Creating a service which does not use `--publish` places the service in the `servicenet`.  The service can still listen on a port for inter-service communication.
+
+## Removing services
+
+```shell
+$ docker service rm hydra-router
+$docker service rm hello-service
+```
