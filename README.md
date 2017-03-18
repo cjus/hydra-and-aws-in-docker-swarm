@@ -102,7 +102,7 @@ If you're not thinking "yeah duh!" then you can learn more about docker [here](h
 
 Setting up our Docker Swarm requires the use of AWS EC2 instances. We're going to create and configure those instances from the command-line rather than from the AWS web interface. In preparation for this, we'll first create a new IAM role for a programmatic user with `AmazonEC2FullAccess` credentials.
 
-> <img src="./images/IAM_Management_Console.png" alt="swarm roles" style="width: 600px;"/>
+> <img src="./images/IAM_Management_Console.png" alt="swarm roles" width="600px" />
 
 Make sure to grab the Access Key and Secret Key as you'll need those shortly.
 
@@ -160,7 +160,7 @@ $ ./remove_node node01
 
 As a recap here is the breakdown of the EC2 instances we'll create.
 
-<img src="./images/swarm.png" alt="swarm" style="width: 500px;"/>
+<img src="./images/swarm.png" alt="swarm" width="500px" />
 
 Using our `create-node` script we're able to automate the creation and configuration of our EC2 instances.
 
@@ -201,7 +201,7 @@ Here's a summary of the changes we need to make:
 
 Here is what your enhanced security group should look like on AWS:
 
-> <img src="./images/EC2_DockerSecurityGroup.png" alt="AWS security group" style="width: 800px;"/>
+> <img src="./images/EC2_DockerSecurityGroup.png" alt="AWS security group" width="800px" />
 
 With these change in place, we can proceed to configure our swarm.
 
@@ -320,7 +320,7 @@ z6vut7t9439u        servicenet          overlay             swarm
 
 Notice that there are two overlay networks, `ingress` and our newly created `servicenet` - both have a scope of `swarm`.
 
-<img src="./images/networks.png" alt="networks" style="width: 400px;"/>
+<img src="./images/networks.png" alt="networks" width="400px" />
 
 | network | usage | scope |
 | --- | --- | --- |
@@ -346,7 +346,7 @@ $ docker service create \
 
 To view it, make sure to open port 8080 on the master01 node using an AWS security group that restricts access to your IP address.
 
-<img src="./images/Visualizer.png" alt="AWS security group" style="width: 900px;"/>
+<img src="./images/Visualizer.png" alt="AWS security group" width="900px" />
 
 <a name="configuration-management"></a>
 ## Configuration management
@@ -451,11 +451,11 @@ $ docker service scale hydra-router=0
 In order to try all of this out you'll need to obtain the IP address of your Amazon ALB from the AWS dashboard.
 
 
-<img src="./images/EC2_AEB_Console.png" alt="networks" style="width: 700px;"/>
+<img src="./images/EC2_AEB_Console.png" alt="networks" width="700px" />
 
 You can direct traffic to the load balancer doing something like this:
 
-<img src="./images/hydra-alb-test_us-east-1_elb_amazonaws_com_v1_hello_test.png" alt="networks" style="width: 700px;"/>
+<img src="./images/hydra-alb-test_us-east-1_elb_amazonaws_com_v1_hello_test.png" alt="networks" width="700px" />
 
 Refreshing the browser page would display different service IDs as the traffic is load balanced to our five hello services.
 
