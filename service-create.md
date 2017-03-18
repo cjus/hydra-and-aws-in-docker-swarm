@@ -31,5 +31,5 @@ $ docker service create \
 
 ```shell
 $ docker service rm hydra-router
-$docker service rm hello-service
+$ docker service rm hello-service
 ```
