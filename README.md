@@ -15,10 +15,10 @@ Running Hydra on AWS in a Docker Swarm
 
 ---
 
-<a name="introduction"></a> 
+<a name="introduction"></a>
 ## Introduction
 
-<a name="aws-setup"></a> 
+<a name="aws-setup"></a>
 ## AWS Setup
 
 * Sign into AWS and create a new IAM role for a programmatic user with `AmazonEC2FullAccess` credentials
@@ -28,9 +28,10 @@ Running Hydra on AWS in a Docker Swarm
   * TCP and UDP port 7946 for communication among nodes
   * TCP and UDP port 4789 for overlay network traffic
 
-<a name="creating-nodes"></a> 
+<a name="creating-nodes"></a>
 ### Creating Nodes
 
+![](images/swarm.png)
 
 ```shell
 #!/bin/bash
@@ -55,7 +56,7 @@ docker-machine create --driver amazonec2 \
 echo "${NODE_NAME} should be available in a minute"
 ```
 
-<a name="removing-nodes"></a> 
+<a name="removing-nodes"></a>
 ### Removing Nodes
 
 ```shell
@@ -63,7 +64,7 @@ echo "${NODE_NAME} should be available in a minute"
 docker-machine rm -f $1
 ```
 
-<a name="swarm-create"></a> 
+<a name="swarm-create"></a>
 ## Swarm Create
 
 ```shell
@@ -207,7 +208,7 @@ $ docker service create \
 ```
 
 
-<a name="configuration-management"></a> 
+<a name="configuration-management"></a>
 ## Configuration management
 
 ### upload config.json
@@ -255,7 +256,7 @@ $ hydra-cli cfg hydra-router:0.15.4 config.json
 }
 ```
 
-<a name="services"></a> 
+<a name="services"></a>
 ## Services
 
 ```shell
@@ -294,7 +295,7 @@ $ docker service rm hello-service
 
 ## Scaling Services
 
-### Scale up 
+### Scale up
 
 ```shell
 $ docker service scale hydra-router=3
@@ -306,7 +307,7 @@ $ docker service scale hydra-router=3
 $ docker service scale hydra-router=0
 ```
 
-<a name="troubleshooting"></a> 
+<a name="troubleshooting"></a>
 ## Troubleshooting
 
 ```shell
@@ -314,7 +315,7 @@ $ docker exec -it eacb530274c7 bash
 $ ip addr
 ```
 
-<a name="redis-and-elk-instances"></a> 
+<a name="redis-and-elk-instances"></a>
 ## Redis and ELK instances
 
 Create two t2.small EC2 instances using Amazon ECS optimized image.
