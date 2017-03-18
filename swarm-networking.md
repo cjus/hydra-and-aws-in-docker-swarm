@@ -29,5 +29,6 @@ z6vut7t9439u        servicenet          overlay             swarm
 
 * https://docs.docker.com/engine/swarm/networking/
 * https://docs.docker.com/engine/swarm/ingress/
+* https://docs.docker.com/engine/userguide/networking/get-started-overlay/
 * https://github.com/docker/docker/issues/25295
 * http://neuvector.com/blog/docker-swarm-container-networking/
