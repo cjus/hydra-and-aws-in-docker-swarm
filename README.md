@@ -409,9 +409,11 @@ $ docker service create \
 > When a service is created which uses `--publish` it is automatically added to the `ingress` network. This is because publishing a port says you want the container to be remotely accessible.
 
 ```shell
+$ docker login
 $ docker service create \
     --name hello-service \
     --network servicenet \
+    --with-registry-auth \
     --constraint=node.role==worker \
     --env HYDRA_REDIS_URL="redis://10.0.0.154:6379/15" \
     --env HYDRA_SERVICE="hello-service:0.0.2" \
@@ -420,6 +422,8 @@ $ docker service create \
 ```
 
 > Creating a service which does not use `--publish` places the service in the `servicenet`, our private subnet. The service can still listen on a port for inter-service communication.
+
+> In the example above we first login to docker(hub) and specify the `--with-registry-auth` flag with the service create operation. This is necessary in order to be able to pull private containers.  Although the `cjus/hello-service:0.0.5` is a public container the flags are specified here as an example of how to work with a private docker repo.
 
 If you'd like to play around with this, both the flywheelsports/fwsp-hydra-router and cjus/hello-service containers can be pulled from Docker Hub.
 
