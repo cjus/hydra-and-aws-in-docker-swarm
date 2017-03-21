@@ -339,6 +339,7 @@ $ docker-machine ssh master01
 $ docker service create \
   --name=viz \
   --publish=8080:8080/tcp \
+  --update-delay 10s \
   --constraint=node.role==manager \
   --mount=type=bind,src=/var/run/docker.sock,dst=/var/run/docker.sock \
   manomarks/visualizer
@@ -398,6 +399,7 @@ We can now use the Docker service create command to push containers into our swa
 $ docker service create \
     --name hydra-router \
     --network servicenet \
+    --update-delay 10s \
     --constraint=node.role==manager \
     --env HYDRA_REDIS_URL="redis://10.0.0.154:6379/15" \
     --env HYDRA_SERVICE="hydra-router:0.15.4" \
@@ -413,6 +415,7 @@ $ docker login
 $ docker service create \
     --name hello-service \
     --network servicenet \
+    --update-delay 10s \
     --with-registry-auth \
     --constraint=node.role==worker \
     --env HYDRA_REDIS_URL="redis://10.0.0.154:6379/15" \
@@ -446,6 +449,27 @@ $ docker service scale hydra-router=3
 
 ```shell
 $ docker service scale hydra-router=0
+```
+
+### Updating services
+
+You can update a running service to a new docker container using:
+
+```
+$ docker service update \
+    --image flywheelsports/fwsp-hydra-router:0.15.9 \
+    hydra-router
+```
+
+To view the versions of the running containers you can:
+
+```shell
+$ docker service ls
+ID            NAME            MODE        REPLICAS  IMAGE
+1fs4uji2vs3j  offers-service  replicated  1/1       flywheelsports/offers-service:0.2.1
+4r5tbyrmtvi2  hello-service   replicated  1/1       cjus/hello-service:0.0.5
+qw7w325zg9e1  hydra-router    replicated  1/1       flywheelsports/fwsp-hydra-router:0.15.9
+tan1qxhlu8sj  viz             replicated  1/1       manomarks/visualizer:latest
 ```
 
 <a name="testdrive"></a>
